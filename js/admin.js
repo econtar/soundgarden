@@ -6,7 +6,6 @@ async function getEvents() {
         const tabela = document.querySelector("tbody");
         const resposta = await fetch(`${URL}/events`, {
         method: "GET",
-        redirect: "follow",
         headers: { "Content-Type": "application/json" },
    });
 

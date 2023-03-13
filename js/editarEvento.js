@@ -17,7 +17,6 @@ async function listarEvento() {
     try {
         const options = {
             method: "GET",
-            redirect: "follow",
             headers: { "Content-Type": "application/json" },
         };
         const resposta = await fetch(`${URL}/events/${id}`, options);
@@ -53,7 +52,6 @@ form.onsubmit = async (evento) => {
             method: "PUT",
             body: JSON.stringify(atualizarEvento),
             headers: { "Content-Type": "application/json" },
-            redirect: "follow",
         };
     
         const resposta = await fetch(`${URL}/events/${id}`, options);
