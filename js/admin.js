@@ -12,9 +12,9 @@ async function getEvents() {
     console.log(resposta);
 
     const dataCorreta = (date) => {
-        let data = date.split("");
-        let dataArrumada = data.slice(8, 10).join("") + "/" + data.slice(5, 7).join("") + "/" + data.slice(0, 4).join("");
-        let hora = data.slice(11, 13).join("") + ":" + data.slice(14, 16).join("");
+        const data = new Date(date);
+        const dataArrumada = data.toLocaleDateString('pt-BR');
+        const hora = data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
         return `${dataArrumada} ${hora}`;
     };
 
