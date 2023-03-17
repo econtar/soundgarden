@@ -63,25 +63,30 @@ function fechaModal() {
 
 async function listarEventos() {
   const tabela = document.querySelector("tbody");
-  const resposta = await fetch(`${URL}/events`, {
-    method: "GET",
-    redirect: "follow",
-    headers: { "Content-Type": "application/json" },
-  });
-  console.log(resposta);
-
-  const conteudoResposta = await resposta.json();
-  const bandas = conteudoResposta.slice(0, 3);
-  bandas.forEach((item) => {
-    evento.innerHTML += ` <article class="evento card p-5 m-3">
-    <h2>${item.name} - ${dataCorreta(item.scheduled)}</h2>
-    <h4>${item.attractions}</h4>
-    <p>${item.description}</p>
-    <button class="btn btn-primary" onclick="abreModal('${
-      item._id
-    }')" >reservar ingresso</button>
-    </article>`;
-  });
+  try {
+    const resposta = await fetch(`${URL}/events`, {
+      method: "GET",
+      redirect: "follow",
+      headers: { "Content-Type": "application/json" },
+    });
+    console.log(resposta);
+  
+    const conteudoResposta = await resposta.json();
+    const bandas = conteudoResposta.slice(0, 3);
+    bandas.forEach((item) => {
+      evento.innerHTML += ` <article class="evento card p-5 m-3">
+      <h2>${item.name} - ${dataCorreta(item.scheduled)}</h2>
+      <h4>${item.attractions}</h4>
+      <p>${item.description}</p>
+      <button class="btn btn-primary" onclick="abreModal('${
+        item._id
+      }')" >reservar ingresso</button>
+      </article>`;
+    });
+  }
+  catch(error) {
+    alert('algo saiu errado!')
+  }
 }
 listarEventos();
 
@@ -95,27 +100,33 @@ botaoX.onclick = () => {
 form.onsubmit = async (evento) => {
   evento.preventDefault();
 
-  const reservarTicket = {
-    owner_name: nome.value,
-    owner_email: email.value,
-    number_tickets: parseInt(ingresso.value),
-    event_id: inputId.value,
-  };
-
-  const options = {
-    method: "POST",
-    body: JSON.stringify(reservarTicket),
-    headers: { "Content-Type": "application/json" },
-    redirect: "follow",
-  };
-
-  const resposta = await fetch(`${URL}/bookings`, options);
-  const conteudoResposta = await resposta.json();
-  console.log(conteudoResposta);
-
-  if (resposta.status == 201) {
-    alert("Reserva realizada com sucesso");
-
-    fechaModal();
+  try {
+    const reservarTicket = {
+      owner_name: nome.value,
+      owner_email: email.value,
+      number_tickets: parseInt(ingresso.value),
+      event_id: inputId.value,
+    };
+  
+    const options = {
+      method: "POST",
+      body: JSON.stringify(reservarTicket),
+      headers: { "Content-Type": "application/json" },
+      redirect: "follow",
+    };
+  
+    const resposta = await fetch(`${URL}/bookings`, options);
+    const conteudoResposta = await resposta.json();
+    console.log(conteudoResposta);
+  
+    if (resposta.status == 201) {
+      alert("Reserva realizada com sucesso");
+  
+      fechaModal();
+    }
   }
+  catch(error) {
+    alert('algo saiu errado!')
+  }
+  
 };

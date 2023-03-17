@@ -1,52 +1,47 @@
-// SELECIONAR O FORMULÁRIO DA PÁGINA HTML
+const URL = 'https://soundgarden-api.vercel.app';
 
-const form = document.querySelector("#form-new-event");
+const inputName = document.getElementById('nome');
+const inputBanner = document.getElementById('poster');
+const inputAtracoes = document.getElementById('atracoes');
+const inputDescricao = document.getElementById('descricao');
+const inputData = document.getElementById('data');
+const inputLotacao = document.getElementById('lotacao');
+const inputBtn = document.querySelector('btn btn-primary');
+const form = document.querySelector('#form-new-event');
 
-// FUNÇÃO DE ENVIO DE EVENTO (post)
+form.onsubmit = async (evento) => {
+  evento.preventDefault();
 
-async function sendNewEvent(formData) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const res = await fetch("https://soundgarden-api.vercel.app/events", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-        resolve(res);
-      } catch (error) {
-        reject(null);
-      }
-    });
+  const novoEvento = {
+
+    name: inputName.value,
+    poster: inputBanner.value,
+    attractions: inputAtracoes.value.split(","),
+    description: inputDescricao.value,
+    scheduled: inputData.value.slice(0, 16),
+    number_tickets: inputLotacao.value,
+  };
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify(novoEvento),
+    headers: { "Content-Type": "application/json" },
+    redirect: "follow",
+  };
+
+  const resposta = await fetch(`${URL}/events/`, options);
+  const conteudoResposta = await resposta.json();
+  console.log(conteudoResposta);
+
+  if (resposta.status == 201) {
+    alert("Evento cadastrado com sucesso!");
+    window.location.href = "admin.html";
+
+    inputName.value = "";
+    inputBanner.value = "";
+    inputAtracoes.value = "";
+    inputDescricao.value = "";
+    inputData.value = "";
+    inputLotacao.value = "";
   }
-
-form.addEventListener("submit", async (e) => {
-
-  e.preventDefault(); // impedir que a página faça ações padrão
-
-  try {
-    const formData = validateFormData({
-      name: form.elements["nome"],
-      poster: form.elements["banner"],
-      attractions: form.elements["atracoes"],
-      description: form.elements["descricao"],
-      scheduled: form.elements["data"],
-      number_tickets: form.elements["lotacao"],
-    });
-
-    const res = await sendNewEvent(formData);
-    
-    if (res.ok) {
-      alert("Evento cadastrado com sucesso.");
-      form.reset();
-    } else {
-      alert(
-        "Houve uma falha com a requisição, por favor tente novamente mais tarde."
-      );
-    }
-  } catch (error) {
-    alert(
-      "Houve um erro ao cadastrar este evento, por favor revise os dados fornecidos"
-    );
-  }
-});
-
+};

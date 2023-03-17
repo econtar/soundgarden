@@ -40,17 +40,22 @@ form.onsubmit = async (evento) => {
 
     const confirmacao = confirm("Tem certeza que deseja excluir o evento?");
 
-    if (confirmacao) {
-        const options = {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            redirect: "follow",
-        };
-
-        const resposta = await fetch(`${URL}/events/${id}`, options);
-        if (resposta.status == 204) {
-            alert("Evento excluído com sucesso!!");
-            window.location.href = "admin.html";
+    try {
+        if (confirmacao) {
+            const options = {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                redirect: "follow",
+            };
+    
+            const resposta = await fetch(`${URL}/events/${id}`, options);
+            if (resposta.status == 204) {
+                alert("Evento excluído com sucesso!!");
+                window.location.href = "admin.html";
+            }
         }
+    }
+    catch(error) {
+        alert('algo saiu errado!')
     }
 };
