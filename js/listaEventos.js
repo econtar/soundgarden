@@ -1,6 +1,4 @@
 const URL = 'https://soundgarden-api.vercel.app';
-
-
 const evento = document.querySelector("#eventos");
 const modal = document.querySelector("#modal");
 const botaoX = document.querySelector("#btn-x");
@@ -26,7 +24,8 @@ const dataCorreta = (date) => {
 };
 
 async function abreModal(id) {
-  // modal.style.display = "flex";
+  try {
+    // modal.style.display = "flex";
   formularioModal.style.width = '100vw'
   formularioModal.style.height = '100vh'
   formularioModal.style.backgroundColor = 'rgba(0, 0, 0, 0.305)'
@@ -34,7 +33,6 @@ async function abreModal(id) {
   inputId.value = id;
   const resposta = await fetch(`${URL}/events/${id}`, {
     method: "GET",
-    redirect: "follow",
     headers: { "Content-Type": "application/json" },
   });
 
@@ -42,24 +40,28 @@ async function abreModal(id) {
   tituloModal.innerHTML = `Reserve seu ingresso para ${conteudoResposta.name}`;
   tickets.innerHTML = `Tickets disponíveis: (${conteudoResposta.number_tickets})`;
   ingresso.max = conteudoResposta.number_tickets;
+  }
+  catch(error) {
+    alert('algo saiu errado!')
+  }
 }
 
 function fechaModal() {
     formularioModal.style.width = ''
-  formularioModal.style.height = ''
-  formularioModal.style.backgroundColor = ''
-  modal.setAttribute("style", "display:none");
-  nome.value = "";
-  email.value = "";
-  ingresso.value = "";
-  inputId.value = "";
-}
+    formularioModal.style.height = ''
+    formularioModal.style.backgroundColor = ''
+    modal.setAttribute("style", "display:none");
+    nome.value = "";
+    email.value = "";
+    ingresso.value = "";
+    inputId.value = "";
+  }
 
 async function listarEventos() {
-  const tabela = document.querySelector("tbody");
+  try {
+    const tabela = document.querySelector("tbody");
   const resposta = await fetch(`${URL}/events`, {
     method: "GET",
-    redirect: "follow",
     headers: { "Content-Type": "application/json" },
   });
   console.log(resposta);
@@ -76,6 +78,10 @@ async function listarEventos() {
     }')" >reservar ingresso</button>
     </article>`;
   });
+  }
+  catch(error) {
+    alert('algo saiu errado!')
+  }
 }
 listarEventos();
 
@@ -87,7 +93,8 @@ botaoX.onclick = () => {
 };
 
 form.onsubmit = async (evento) => {
-  evento.preventDefault();
+  try {
+    evento.preventDefault();
 
   const reservarTicket = {
     owner_name: nome.value,
@@ -111,5 +118,9 @@ form.onsubmit = async (evento) => {
     alert("Reserva realizada com sucesso");
 
     fechaModal();
+  }
+  }
+  catch(error) {
+    alert('algo saiu errado!')
   }
 };

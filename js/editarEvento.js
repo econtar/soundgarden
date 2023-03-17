@@ -6,10 +6,7 @@ const inputData = document.getElementById('data');
 const inputLotacao = document.getElementById('lotacao');
 const inputBtn = document.querySelector('btn btn-primary');
 const form = document.querySelector('form');
-
-
 const URL = 'https://soundgarden-api.vercel.app';
-
 
 const id = new URLSearchParams(window.location.search).get("id");
 

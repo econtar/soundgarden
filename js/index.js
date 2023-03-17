@@ -28,7 +28,8 @@ const dataCorreta = (date) => {
 
 
 async function abreModal(id) {
-  // modal.style.display = "flex";
+  try {
+    // modal.style.display = "flex";
   formularioModal.style.width = '100vw'
   formularioModal.style.height = '100vh'
   formularioModal.style.backgroundColor = 'rgba(0, 0, 0, 0.305)'
@@ -44,6 +45,10 @@ async function abreModal(id) {
   tituloModal.innerHTML = `Reserve seu ingresso para ${conteudoResposta.name}`;
   tickets.innerHTML = `Tickets disponíveis: (${conteudoResposta.number_tickets})`;
   ingresso.max = conteudoResposta.number_tickets;
+  }
+  catch(error) {
+    alert('algo saiu errado!')
+  }
 }
 function fechaModal() {
   formularioModal.style.width = ''
