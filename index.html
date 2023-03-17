@@ -6,155 +6,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sound Garden</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="./js/modal.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="/src/banner/style.css">
+    <link rel="stylesheet" href="./css/slider.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <script src="index.js" defer></script>
+    
 </head>
 
-<body onload="comeco();regular()";>
-    <header class=" d-flex justify-content-center align-items-center">
+<body>
+    <header id="logo" class=" d-flex justify-content-center align-items-center">
         <img src="img/Sound-logo (1).png" width="300" alt="">
     </header>
     <main>
-
-    <!-- modal -->
-    <div id="modal" style="display: none;">
-        <div id="modal-header">
-            <h2 id="h2">Registre-se!</h2>
-        </div>
-        <form id="form1">
-            <label id="name" for="nome">nome:</label>
-            <input type="text" name="nome">
-        
-            <label id="email" for="email">e-mail:</label>
-            <input type="email" id="email" name="email">
-        
-            <button id="mb" type="submit">reservar</button>
-        </form>
-        <div id="modal-footer">
-        </div>
-        </div><!--modal-->
-
-        <section class="full d-flex justify-content-center align-items-center"
-            style="background-color: #C2185B; color: #fff">         
-            <div class="banner">
-                <img src="./img/bannerevento.jpg" alt="banner festival">
-            </div>
-            
+        <section id="carrossel" class=" d-flex justify-content-center align-items-center" style="background-color: #F8BBD0; height: 400px; color: #fff">
+            <h2>teste</h2>
         </section>
-
-        <section class="full">
+        <section #id="listaEventos" class="full">
             <div class="container text-center">
                 <h2>Próximos eventos</h2>
             </div>
-            <div id="container-eventos-1" class="container d-flex justify-content-center align-items-center">
-                
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="modal1 btn btn-primary" id="show1">reservar ingresso</a>
-                </article>
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="modal1 btn btn-primary" id="show2">reservar ingresso</a>
-                </article>
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="modal1 btn btn-primary" id="show3">reservar ingresso</a>
-                </article>
-                
+            <div id="eventos" class="container d-flex justify-content-center align-items-center flex-wrap">
+
             </div>
             <div class="container text-center">
-                <a href="eventos.html" class="btn btn-secondary">ver todos os eventos</a>
+                <a href="./eventos.html" id="botao-ver-todos" class="btn btn-secondary">ver todos os eventos</a>
             </div>
         </section>
-        <section class="full d-flex justify-content-center align-items-center"
-            style="background-color: #f2f2f2; color: #555">
+        <section class="full d-flex justify-content-center align-items-center" style="background-color: #f2f2f2; color: #555">
             <div class="container">
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="col">
                         <h2>A Sound Garden</h2>
 
-                        <p>Sound Garden é uma casa de shows fictícia localizada no coração da cidade. É conhecida por ser um espaço descolado e moderno, onde o público pode desfrutar de apresentações musicais ao vivo de diversos gêneros. A casa foi construída com o objetivo de oferecer aos visitantes uma experiência única e inesquecível, e isso é alcançado através da combinação de uma excelente acústica, iluminação e tecnologia de última geração.</p>
-                        <p>O palco principal é um dos destaques da casa, com um design arrojado e tecnologia avançada, que garante um som de alta qualidade durante as apresentações. Além disso, o público pode desfrutar de uma ampla variedade de bebidas e comidas, incluindo drinks artesanais e opções vegetarianas, em um bar e restaurante localizado no local.</p>
-                        <p>O Sound Garden também é conhecido por sua programação diversificada, com apresentações de música ao vivo todas as noites da semana. Alguns dos artistas mais talentosos e consagrados do cenário musical nacional e internacional já se apresentaram na casa, tornando-a um ponto de referência para os amantes da música.</p>
-                        <p>Além disso, a casa oferece serviços de áudio e iluminação de alta qualidade para eventos corporativos e privados, como casamentos, lançamentos de produtos e festas de aniversário. O Sound Garden também possui uma equipe altamente qualificada e comprometida, que trabalha incansavelmente para garantir a satisfação dos clientes e a realização de eventos inesquecíveis.</p>
-                        <p>Em resumo, o Sound Garden é uma casa de shows moderna e descolada, que oferece aos visitantes uma experiência única e inesquecível. Com sua programação diversificada, excelente acústica e tecnologia de ponta, é o lugar perfeito para os amantes da música e dos eventos ao vivo.</p>
+                        <p>Sound Garden é uma casa de show super descolada</p>
 
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id autem, fugiat recusandae, totam
+                            inventore harum iste libero obcaecati neque fugit ipsam. Dolorum quae quis odio rem at eum
+                            cumque excepturi.</p>
+                        <p>Alias animi nostrum aperiam sapiente laudantium
+                            corporis esse voluptatem, repellendus nam exercitationem reprehenderit error. Maiores
+                            quibusdam molestias adipisci magni maxime explicabo voluptatibus ipsum delectus, cum soluta
+                            esse ab ducimus. Molestias facilis hic quod similique, voluptate porro architecto itaque
+                            odit dolore temporibus, dignissimos magni delectus in?</p>
+                        <p>Nemo excepturi soluta provident minima amet? Architecto
+                            distinctio molestiae nisi necessitatibus nesciunt possimus dignissimos consequatur iusto
+                            cupiditate quam accusantium tempora odio at deleniti explicabo voluptatum blanditiis natus
+                            qui, dolorem ea eius minima itaque aspernatur? Quia voluptatem ex, mollitia consequuntur
+                            quas incidunt, aliquid explicabo nesciunt hic nobis libero velit at reiciendis.</p>
                     </div>
                     <div class="col">
-                        <img src="img/music.svg" width="500px">
+                        <img id="desaparece" src="img/music.svg" width="100%">
                     </div>
                 </div>
             </div>
         </section>
 
-    </main>
+        <!-- modal -->
+        <div id="formulario">
+            <div id="modal">
+                <div class="modal-header">
+                    <h5 id="titulo-modal" class="modal-title">Reserve seu ingresso para </h5>
+                    <button id="btn-x" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name">
 
+                    <label for="email"> E-mail</label>
+                    <input type="email" class="form-control" id="email">
+
+                    <label id="tickets" for="ingresso">Tickets restantes: </label>
+                    <input type="number" class="form-control" value=1 min="1" max="999" id="ingresso">
+
+                    <input type="hidden" name="id" id="inputId">
+                    <button type="button" id="btn-fechar" class="btn btn-secondary botao-modal ">Fechar</button>
+                    <button type="submit" class="btn btn-primary botao-modal ">Reservar ingresso</button>
+
+                </form>
+            </div>
+        </div>
+
+    </main>
     <footer>
-        <div class="container d-flex justify-content-center align-items-center">
+        <div id="footeeer" class="container d-flex justify-content-center align-items-center">
             <a href="#">
                 <img src="img/Sound-logo-black (1).png" width="200px" alt="">
             </a>
             <nav>
-                <ul>
+                <ul class="nav-footer">
                     <li>
-                        <a href="eventos.html">eventos</a>
+                        <a href="./eventos.html">eventos</a>
                     </li>
                     <li>
-                        <a href="admin.html">painel administrativo</a>
+                        <a href="./admin.html">painel administrativo</a>
                     </li>
                 </ul>
             </nav>
         </div>
-
     </footer>
 
-    <script src="/src/banner/banner.js"></script>
-
-    <script src="/src/modal/index.js"></script>
-    
-    <script src="/src/modal/modal.js"></script>
-
-
-
-
-    <script>
-        // Selecione o botão de reserva
-        const reserveButton = document.querySelector("#mb");
-      
-        // Adicione um ouvinte de evento de clique ao botão de reserva
-        reserveButton.addEventListener("click", function(event) {
-          // Impedir o envio do formulário
-          event.preventDefault();
-      
-          // Selecionar os campos de entrada de nome e e-mail
-          const nameInput = document.querySelector("#name");
-          const emailInput = document.querySelector("#email");
-      
-          // Obter o ID do evento a partir do URL atual
-          const url = new URL(window.location.href);
-          const eventId = url.searchParams.get("id");
-      
-          // Exibir informações do usuário em um modal
-          alert(`Sua reserva foi feita!\n\nNome: ${nameInput.value}\nE-mail: ${emailInput.value}\nID do evento: ${eventId}`);
-        });
-      </script>
-
-<script src="./js/eventosHome.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
