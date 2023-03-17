@@ -1,7 +1,7 @@
-## Desafio 2 Gama Academy
+## <h1 align="center">Desafio 2 Gama Academy</h1>
 <br>
 
-## Sound Garden 
+## Sound Garden 🎵🎸
 <br>
 
 <p>Uma casa de show chamada Sound Garden será inaugurada e precisa de um site que exiba os eventos e permita que os clientes reservem ingressos através da Landing Page</p>
@@ -15,8 +15,8 @@
 
 ## Grupo 
 
-- Eduardo Contar
-- Matheus Ellenberger
-- Ramon Peixoto
-- Rayssa Triani
-- Vinicius Santos
+🙋‍♂️ Eduardo Contar <br>
+🙋‍♂️ Matheus Ellenberger <br>
+🙋‍♂️ Ramon Peixoto <br>
+🙋‍♀️ Rayssa Triani <br>
+🙋‍♂️ Vinicius Santos 
